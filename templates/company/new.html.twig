@@ -1,0 +1,20 @@
+{# templates/task/new.html.twig #}
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+    <h1>Create company</h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+{{ form(form, {'attr': { 'novalidate': 'novalidate'} }) }}
+    </div>
+    <div class="col">
+      Добавьте информацию  об юридическом лице в базу данных сайта siterista.ru, котрая будет отображаться в качестве визитной карточки. Так же Вы можете добавить информацию о руководителе, сотрудниках. 
+    </div>
+
+  </div>
+</div>
+{% endblock %}

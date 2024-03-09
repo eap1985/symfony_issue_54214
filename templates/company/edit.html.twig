@@ -1,0 +1,122 @@
+{# templates/task/new.html.twig #}
+{% form_theme form 'form/mytag.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
+
+{% if form.tags is defined %}
+{% form_theme form.tags 'form/mytag.html.twig' %}
+{% endif %}
+
+{% extends app.request.xmlHttpRequest ? "minimum.html.twig": "base.html.twig" %}
+  
+{% block body %}
+
+
+
+<div class="container">
+<h1>{% trans %}company.create{% endtrans %}</h1>
+<div class="" style="font-size: 1.3em;">
+<div {{ stimulus_controller('hello') }}>
+    <div id="hello">Hello</div>
+</div>
+        <span
+            {{ stimulus_controller('symfony/ux-typed', {
+                strings: [
+                    'Добавьте Вашу компанию в реестр компаний сайта siteurista.ru',
+                    'Которая будет отображаться в качестве визитной карточки...',
+                    'Повысь известность своего бизнеса',
+                    'Укажите сферы дятельности',
+                    'Сотрудников и руковводство',
+                    'Реквизиты, адреса организации',
+                    
+                ],
+                loop: true,
+                showCursor: true,
+                cursorChar: '✨',
+            }) }}
+        ></span>
+    </div>
+    
+  <div class="row">
+    <div class="col">
+    
+    
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate','id':'meetup_form'}}) }}
+     <div class="row">
+        <div class="col">
+            {{ form_row(form.imageFile, {'label': 'Image', 'image_uri' : false}) }}
+           
+           {% if path is not null %}
+            <img src="{{ asset(path) | imagine_filter('my_thumb') }}" />
+           {% endif %}
+        </div>
+        
+    </div>
+
+
+<div class="mb-3">
+  {{ form_label(form.addPerson) }}
+  {{ form_widget(form.addPerson) }}
+  {{ form_errors(form.addPerson) }}
+</div>    
+
+<div class="mb-3">
+{% if form.tags is defined %}
+ {{ form_row(form.tags) }}
+{% endif %}
+</div>      
+
+<div class="mb-3">
+    
+  {{ form_label(form.name) }}
+  {{ form_widget(form.name) }}
+  {{ form_errors(form.name) }}
+</div>    
+
+<div class="mb-3">
+    
+  {{ form_label(form.inn) }}
+  {{ form_widget(form.inn) }}
+  {{ form_errors(form.inn) }}
+</div>    
+
+<div class="mb-3">
+    
+  {{ form_label(form.created) }}
+  {{ form_widget(form.created) }}
+  {{ form_errors(form.created) }}
+</div>    
+
+<div class="mb-3">
+    
+  {{ form_label(form.description) }}
+  {{ form_widget(form.description, {'attr': {'style': 'height:150px;'} }) }}
+  {{ form_errors(form.description) }}
+</div>    
+
+<div class="mb-3">
+    
+  {{ form_label(form.foo) }}
+  {{ form_widget(form.foo) }}
+  {{ form_errors(form.foo) }}
+</div>    
+
+{{ form_end(form) }}
+</div>
+
+    
+    <div class="col">
+      Добавьте информацию  об юридическом лице в базу данных сайта siteurista.ru, котрая будет отображаться в качестве визитной карточки. Так же Вы можете добавить информацию о руководителе, сотрудниках.
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+
+
+</script>
+
+{% endblock %}
+
+

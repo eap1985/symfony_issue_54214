@@ -1,0 +1,22 @@
+{% block _company_tags_widget %}
+
+    <div class="...">
+    <div class="mb-3">
+    
+        {# the data-index attribute is required for the JavaScript code below #}
+    <ul class="tags"
+    data-index="{{ form.parent.tags|length > 0 ? form.parent.tags|last.vars.name + 1 : 0 }}"
+    data-prototype="{{ form_widget(form.parent.tags.vars.prototype)|e('html_attr') }}"
+    >
+    {% for tag in form.parent.tags %}
+            <li>Имя: {{ form_widget(tag.name) }}</li>
+        {% endfor %}
+    </ul>
+        <button type="button" class="add_item_link btn-primary btn" data-collection-holder-class="tags">Add a tag</button>
+    </div>
+    </div>
+    <hr>
+    
+        {# ... render the HTML element to display this field ... #}
+    
+{% endblock %}

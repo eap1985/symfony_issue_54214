@@ -1,0 +1,23 @@
+{# templates/task/new.html.twig #}
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+    <h1>List company</h1>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <ul>
+        {% for item in companies %}
+          <li>{{item.name}} </li>
+        {% endfor %}
+      <ul>
+    </div>
+    
+
+  </div>
+</div>
+{% endblock %}

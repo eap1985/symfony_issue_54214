@@ -1,0 +1,34 @@
+{# templates/task/new.html.twig #}
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+
+<h1>Top Ten Members</h1>
+
+
+
+    <h1>Company</h1>
+
+<div class="container">
+
+<aside class="col-12 col-md-4 order-2 order-md-1">
+                <turbo-frame id="cart-sidebar" src="{{ fragment_uri(controller('App\\Controller\\TaskController::success')) }}">
+                    Loading...
+                </turbo-frame>
+</aside>
+
+
+  <div class="row">
+    <div class="col">
+      <ul>
+        
+          <li>{{ company.name }} ({{company.updatedAt()|date('Y-m-d H:i:s')}}, {{company.inn}}) </li>
+        
+      <ul>
+    </div>
+    
+
+  </div>
+</div>
+{% endblock %}
